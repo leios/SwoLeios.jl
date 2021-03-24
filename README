@@ -1,3 +1,12 @@
 # SwoLeios
 
 This is a simple repository to select a short exercise to do for roughly 5 minutes every hour
+
+List of things to do:
+* Implement "heaps of heaps" to select exercise
+* Allow user to specify time over which SwoLeios will work (weeks, days, hours, etc)
+* Allow user to specify difficulty by inputting desired number of repititions
+
+Finicky things to think about:
+* Determining whether set is in reps or duration is weird for `select_reps()`
+* Can we just use `time` directly?

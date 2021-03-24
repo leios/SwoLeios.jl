@@ -1,5 +1,7 @@
 module SwoLeios
 
-greet() = print("Hello World!")
+using DataFrames
+
+include("selection.jl")
 
 end # module
