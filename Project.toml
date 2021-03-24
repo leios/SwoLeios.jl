@@ -1,0 +1,7 @@
+name = "SwoLeios"
+uuid = "4815641a-f0af-4b28-b724-92e40ba1eabe"
+authors = ["James Schloss <jrs.schloss@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+DataStructures = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
