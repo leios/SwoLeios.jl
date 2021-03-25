@@ -32,5 +32,57 @@ function select_reps(exercise::DataFrameRow)
     
 end
 
-function select_set()
+function select_set!(superset)
+    # select set
+    set = superset[1][1][1,:]
+
+    # clear weights of chosen set
+    superset[1][1][1, :priority] = 0
+    superset[1][2] = 0
+
+    # updating weights
+    update_weights!(superset)
+
+    # sorting
+    sort_sets!(superset)
+
+    return set
+end
+
+function update_weights!(superset)
+    for i = 1:size(superset)[1]
+        superset[i][2] += rand()
+        for j = 1:size(superset[i][1])[1]
+            superset[i][1][j,:priority] += rand()
+        end
+    end
+end
+
+function sort_sets!(superset)
+    for i = 1:size(superset)[1]
+        sort!(superset[i][1], :priority, rev=true)
+    end 
+
+    sort!(superset, by=x->x[2], rev=true)
+end
+
+function create_superset(core_file, mobility_file, arms_file, legs_file)
+
+    core_set = DataFrame(CSV.File("exercises/core.dat"))
+    mobility_set = DataFrame(CSV.File("exercises/mobility.dat"))
+    arms_set = DataFrame(CSV.File("exercises/arms.dat"))
+    legs_set = DataFrame(CSV.File("exercises/legs.dat"))
+
+    # Add a priority column to the data frames
+    for set in [core_set, mobility_set, arms_set, legs_set]
+        set.priority = rand(size(set)[1])
+    end
+
+    superset = [[core_set, rand()],
+                [mobility_set, rand()],
+                [arms_set, rand()],
+                [legs_set, rand()]]
+
+    return sort_sets!(superset)
+
 end
