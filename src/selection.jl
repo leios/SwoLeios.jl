@@ -66,6 +66,7 @@ function sort_sets!(superset)
     sort!(superset, by=x->x[2], rev=true)
 end
 
+# Ideally, this is a heap of heaps, using BinaryHeap(Base.By(x->x[2]), data)
 function create_superset(core_file, mobility_file, arms_file, legs_file)
 
     core_set = DataFrame(CSV.File("exercises/core.dat"))
