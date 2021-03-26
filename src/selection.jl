@@ -1,3 +1,4 @@
+export create_superset
 function convert_to_float(value::String)
 
     # determining whether set is in reps or duration

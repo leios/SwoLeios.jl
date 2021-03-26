@@ -15,6 +15,7 @@ Finicky things to think about:
 Things to do for exercise stream:
 * update push-up counter to also show next exercise
 * create a julia "macros" to quickly change things on the fly, like difficulty and shuffling
+* "Pretty Print" function
 
 Example run:
 ```
