@@ -12,18 +12,18 @@ function convert_to_float(value::String)
 end
 
 function convert_to_time(value::Float64)
-    return string(floor(Int, value))*":"*string(convert(Int,(value%1)*60))
+    return string(floor(Int, value))*":"*lpad(string(floor(Int,(value%1)*60)), 2, "0")
 end
 
-function select_reps(exercise::DataFrameRow)
-    difficulty = exercise["difficulty"]
-    reps_0 = convert_to_float(exercise["reps_0"])
-    reps_10 = convert_to_float(exercise["reps_10"])
+function select_reps(exercise)
+    difficulty = exercise[:difficulty]
+    reps_0 = convert_to_float(exercise[:reps_0])
+    reps_10 = convert_to_float(exercise[:reps_10])
 
     value = reps_0 + (reps_10 - reps_0)*difficulty/10
 
     # determining whether set is in reps or duration
-    colon_loc = findfirst(":", exercise["reps_0"])
+    colon_loc = findfirst(":", exercise[:reps_0])
 
     if typeof(colon_loc) != Nothing
         return convert_to_time(value)
@@ -35,7 +35,7 @@ end
 
 function select_set!(superset)
     # select set
-    set = superset[1][1][1,:]
+    set = copy(superset[1][1][1,:])
 
     # clear weights of chosen set
     superset[1][1][1, :priority] = 0
