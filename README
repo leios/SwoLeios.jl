@@ -11,11 +11,7 @@ Finicky things to think about:
 * if the dataframe is read in with a duration as the first row, it will assume everything is a "Date," which breaks things
 * if no duration is present in exercises, dataframes assume that the column is for integers and things break
 * by=x->x[2] for heaps?
-
-Things to do for exercise stream:
-* update push-up counter to also show next exercise
-* create a julia "macros" to quickly change things on the fly, like difficulty and shuffling
-* "Pretty Print" function
+* some sets do not fit on the image
 
 Example run:
 ```

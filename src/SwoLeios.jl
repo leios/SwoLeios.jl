@@ -14,7 +14,11 @@ function output_set(superset)
 end
 
 function output_set(set, reps)
-    set_str = string(reps)*'\t'*string(set[:exercise])
+    set_str = string(reps)*' '*string(set[:exercise])
+    output_file = open("set.txt", "w")
+    write(output_file, "Next: "*set_str)
+    close(output_file)
+    run(`sh bin/draw_set`)
     return set_str
 end
 
