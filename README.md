@@ -19,3 +19,15 @@ set = increase_difficulty(set)
 set = decrease_difficulty(set)
 shuffle!(superset)
 ```
+
+List of things to do:
+* Implement "heaps of heaps" to select exercise
+
+Finicky things to think about:
+* Determining whether set is in reps or duration is weird for `select_reps()`
+* Can we just use `time` directly?
+* if the dataframe is read in with a duration as the first row, it will assume everything is a "Date," which breaks things
+* if no duration is present in exercises, dataframes assume that the column is for integers and things break
+* by=x->x[2] for heaps?
+* some sets do not fit on the image
+
