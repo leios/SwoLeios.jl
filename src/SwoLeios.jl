@@ -27,7 +27,8 @@ end
 function cycle_set!(superset)
     set = select_set!(superset)
     reps = select_reps(set)
-    return output_set(set, reps)
+    println(output_set(set, reps))
+    return (set, reps)
 end
 
 end # module
