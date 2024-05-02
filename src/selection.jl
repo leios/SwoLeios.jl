@@ -1,5 +1,5 @@
 export create_superset
-function convert_to_float(value::String)
+function convert_to_float(value)
 
     # determining whether set is in reps or duration
     colon_loc = findfirst(":", value)
